@@ -47,7 +47,7 @@
     </div>
     <div>
       <a-button size="large" class="bg-black text-white" @click="fn2">完成创建</a-button>
-      <a-button size="large" class="ml-2" @click="fn2">取消</a-button>
+      <a-button size="large" class="ml-2" @click="fn1">取消</a-button>
     </div>
   </div>
 </template>
