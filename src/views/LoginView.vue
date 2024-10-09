@@ -16,10 +16,13 @@
           <a-space direction="vertical">
             <a-input class="h-10" placeholder="请输入邮箱" v-model:value="data.username" />
             <a-input-password class="h-10" placeholder="请输入密码" v-model:value="data.password" />
-            <a-radio
+
+            <a-checkbox
               >我已阅读并同意<a-button type="link" size="small" class="-ml-2 -mr-2"
                 >服务协议</a-button
-              >和<a-button type="link" size="small" class="-ml-2 -mr-2">隐私政策</a-button></a-radio
+              >和<a-button type="link" size="small" class="-ml-2 -mr-2"
+                >隐私政策</a-button
+              ></a-checkbox
             >
           </a-space>
         </div>
