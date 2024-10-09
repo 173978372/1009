@@ -5,7 +5,7 @@
     </a-button>
     <div class="text-xl ml-3">创建代码仓库</div>
   </div>
-  <div class="w-4/5">
+  <div class="w-4/5 flex flex-col gap-4">
     <div>
       <div class="text-xl">所属项目<span class="text-red-600">*</span></div>
       <a-input placeholder="所属项目" v-model:value="name" class="w-2/5" />
@@ -44,6 +44,10 @@
         <a-radio>私有仓库(仅对仓库成员可见，仓库成员可访问仓库。)</a-radio>
         <a-radio v-model:checked="checked">公开仓库</a-radio>
       </div>
+    </div>
+    <div>
+      <a-button size="large" class="bg-black text-white" @click="fn2">完成创建</a-button>
+      <a-button size="large" class="ml-2" @click="fn2">取消</a-button>
     </div>
   </div>
 </template>
