@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center" v-show="show">
-    <div><h1>欢迎使用代码仓库</h1></div>
+    <div><h1 class="text-4xl">欢迎使用代码仓库</h1></div>
     <div class="flex items-center justify-center">
       <h5 class="text-gray-500 w-2/3">
         代码仓库用于托管基于 GIT 或 SVN 管理的代码库。通过 Review
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div>
-      <a-button size="large" class="bg-black text-white">创建代码仓库</a-button>
+      <a-button size="large" class="bg-black text-white" @click="fn">创建代码仓库</a-button>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ import { onMounted, ref } from 'vue'
 import axios from 'axios'
 let show = ref(true)
 let router = useRouter()
-let fn = async () => {
+let fn = () => {
   router.push('/create')
 }
 onMounted(async () => {
