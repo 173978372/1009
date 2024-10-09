@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-between">
-    <div class="w-4/5">
+    <div class="w-full">
       <a-menu v-model:selectedKeys="current" mode="horizontal" :items="items" />
     </div>
     <div class="flex items-center">
