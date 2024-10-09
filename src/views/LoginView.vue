@@ -51,7 +51,7 @@ let fn1 = () => {
   login(data.value).then((res) => {
     console.log(res)
     localStorage.setItem('access_token', res.data.access_token)
-    router.push('/layout')
+    router.push('/')
   })
 }
 </script>

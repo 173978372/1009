@@ -3,7 +3,7 @@
     <a-layout-sider width="40" class="!bg-[#f8f6fc]" style="border-right: 1px solid #c9ceda">
       <div class="flex flex-col h-screen justify-around">
         <div
-          @click="fn1(item.name)"
+          @click="fn1(item)"
           v-for="(item, index) in arr"
           class="flex flex-col justify-center items-center"
         >
@@ -29,87 +29,104 @@
 </template>
 <script setup>
 import { Icon } from '@iconify/vue'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-let str = ref('工作台')
+let router = useRouter()
+let str = ref('代码仓库')
 let fn1 = (item) => {
-  console.log(item)
-  str.value = item
+  str.value = item.name
+  router.push(`${item.scr}`)
 }
 const arr = [
   {
     icon: 'icon-park-outline:workbench',
     string: '工作台',
-    name: '工作台'
+    name: '工作台',
+    scr: '/'
   },
   {
     icon: 'eos-icons:project-outlined',
     string: '项目',
-    name: '项目'
+    name: '项目',
+    scr: '/'
   },
   {
     icon: 'hugeicons:artificial-intelligence-06',
     string: 'Al',
-    name: 'Al'
+    name: 'Al',
+    scr: '/'
   },
   {
     icon: 'fluent-mdl2:issue-tracking-mirrored',
     string: '事项',
-    name: '事项'
+    name: '事项',
+    scr: '/'
   },
   {
     icon: 'ic:baseline-code',
     string: '代码',
-    name: '代码仓库'
+    name: '代码仓库',
+    scr: '/code'
   },
   {
     icon: 'icon-park-outline:ad-product',
     string: '制品',
-    name: '制品'
+    name: '制品',
+    scr: '/'
   },
   {
     icon: 'ic:baseline-insights',
     string: '洞察',
-    name: '洞察'
+    name: '洞察',
+    scr: '/'
   },
   {
     icon: 'octicon:book-24',
     string: '知识',
-    name: '知识'
+    name: '知识',
+    scr: '/'
   },
   {
     icon: 'mdi:automatic',
     string: '自动化',
-    name: '自动化'
+    name: '自动化',
+    scr: '/'
   },
   {
     icon: 'mdi:user-outline',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   },
   {
     icon: 'ci:more-grid-big',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   },
   {
     icon: 'mdi:bell-outline',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   },
   {
     icon: 'uil:setting',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   },
   {
     icon: 'ph:question-duotone',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   },
   {
     icon: 'mingcute:user-4-fill',
     string: '',
-    name: ''
+    name: '',
+    scr: '/'
   }
 ]
 </script>
