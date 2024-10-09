@@ -8,7 +8,7 @@
   <div class="w-4/5 flex flex-col gap-4">
     <div>
       <div class="text-xl">所属项目<span class="text-red-600">*</span></div>
-      <a-input placeholder="所属项目" v-model:value="name" class="w-2/5" />
+      <a-input placeholder="所属项目" v-model:value="data.name" class="w-2/5" />
     </div>
     <div class="flex w-full">
       <div class="w-1/5">
@@ -18,7 +18,7 @@
       <div class="w-4/5">
         <div class="text-xl">仓库名称<span class="text-red-600">*</span></div>
         <a-input
-          v-model:value="path"
+          v-model:value="data.path"
           class="w-full"
           placeholder="仓库名称只支持字母、数字、下划线(_)、中划线(-)和点(.)的组合"
         />
@@ -26,7 +26,7 @@
     </div>
     <div>
       <div class="text-xl">仓库描述<span class="text-red-600">*</span></div>
-      <a-textarea v-model:value="description" placeholder="请输入仓库描述" :rows="4" />
+      <a-textarea v-model:value="data.description" placeholder="请输入仓库描述" :rows="4" />
     </div>
     <div>
       <div class="text-xl">初始化仓库</div>
@@ -41,8 +41,8 @@
     <div>
       <div class="text-xl">是否开源</div>
       <div class="flex flex-col">
-        <a-radio>私有仓库(仅对仓库成员可见，仓库成员可访问仓库。)</a-radio>
-        <a-radio v-model:checked="checked">公开仓库</a-radio>
+        <a-radio checked="checked">私有仓库(仅对仓库成员可见，仓库成员可访问仓库。)</a-radio>
+        <a-radio>公开仓库</a-radio>
       </div>
     </div>
     <div>
@@ -55,12 +55,25 @@
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-// import axios from 'axios'
+import { create } from '@/axios'
 let router = useRouter()
-let name = ref('')
-let description = ref('')
-let path = ref('')
+
+let data = ref({
+  access_token: '',
+  name: '',
+  description: '',
+  path: '',
+  private: false
+})
 let fn1 = () => {
   router.push('/code')
+}
+let fn2 = async () => {
+  let access_token = await localStorage.getItem('access_token')
+  data.value.access_token = access_token
+  create(data.value).then((res) => {
+    console.log(res)
+    router.push('/code')
+  })
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center" v-show="show">
+  <div class="flex flex-col justify-center items-center" v-if="show">
     <div><h1 class="text-4xl">欢迎使用代码仓库</h1></div>
     <div class="flex items-center justify-center">
       <h5 class="text-gray-500 w-2/3">
@@ -30,12 +30,15 @@
       <a-button size="large" class="bg-black text-white" @click="fn">创建代码仓库</a-button>
     </div>
   </div>
+  <div v-else>
+    <a-table :dataSource="dataSource" :columns="columns" />
+  </div>
 </template>
 <script setup>
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
-import axios from 'axios'
+import { getData } from '@/axios'
 let show = ref(true)
 let router = useRouter()
 let fn = () => {
@@ -43,11 +46,39 @@ let fn = () => {
 }
 onMounted(async () => {
   let access_token = await localStorage.getItem('access_token')
-  axios.get('https://gitee.com/api/v5/user/repos', {
-    params: {
-      access_token: access_token
+  getData(access_token).then((res) => {
+    console.log(res.data)
+    if (res.data) {
+      show.value = false
+      dataSource.value = res.data
+    } else {
+      show.value = true
     }
   })
   console.log(212313)
 })
+
+let dataSource = ref([])
+let columns = [
+  {
+    title: ' 仓库名称',
+    dataIndex: 'name',
+    key: 'name'
+  },
+  {
+    title: '默认分支',
+    dataIndex: 'default_branch',
+    key: 'default_branch'
+  },
+  {
+    title: '仓库创建者的昵称',
+    dataIndex: 'project_creator',
+    key: 'project_creator'
+  },
+  {
+    title: '最近一次代码推送时间',
+    dataIndex: 'pushed_at',
+    key: 'pushed_at'
+  }
+]
 </script>
