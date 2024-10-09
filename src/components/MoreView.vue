@@ -26,7 +26,7 @@
         <div class="text-gray-400">发布、标记代码版本</div>
       </div>
     </div>
-    <div>
+    <div class="mt-4">
       <a-button size="large" class="bg-black text-white" @click="fn">创建代码仓库</a-button>
     </div>
   </div>

@@ -14,16 +14,16 @@ const router = createRouter({
         {
           path: 'code',
           component: HomeView
+        },
+        {
+          path: '/create',
+          component: CreateView
         }
       ]
     },
     {
       path: '/login',
       component: LoginView
-    },
-    {
-      path: '/create',
-      component: CreateView
     }
   ]
 })
