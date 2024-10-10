@@ -14,8 +14,18 @@
         </div>
         <div class="flex flex-col">
           <a-space direction="vertical">
-            <a-input class="h-10" placeholder="请输入邮箱" v-model:value="data.username" />
-            <a-input-password class="h-10" placeholder="请输入密码" v-model:value="data.password" />
+            <a-input
+              class="h-10"
+              value="173978372@qq.com"
+              placeholder="请输入邮箱"
+              v-model:value="data.username"
+            />
+            <a-input-password
+              class="h-10"
+              value="246790xl"
+              placeholder="请输入密码"
+              v-model:value="data.password"
+            />
 
             <a-checkbox
               >我已阅读并同意<a-button type="link" size="small" class="-ml-2 -mr-2"
