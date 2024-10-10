@@ -18,7 +18,7 @@
           <Icon :icon="item.icon" />
         </div>
       </div>
-    </a-layout-sider>
+    </a-layout-sider style="">
     <div>
       <div
         :style="{
@@ -29,7 +29,9 @@
         <a-drawer
           :title="name"
           placement="left"
+          closable="true"
           width="160px"
+          zIndex="1000"
           :closable="false"
           :open="open"
           :get-container="false"
@@ -39,43 +41,43 @@
           <div class="flex gap-4 flex-col">
             <div class="flex items-center">
               <div>
-                <Icon icon="mdi:user-outline" />
+                <Icon icon="mdi:user-outline"  />
               </div>
-              <div @click="fn3">个人账户设置</div>
+              <div @click="fn3" class=" ml-1">个人账户设置</div>
             </div>
             <div class="flex items-center">
               <div>
                 <Icon icon="icon-park-outline:shopping" />
               </div>
-              <div @click="fn3">服务订阅</div>
+              <div @click="fn3" class=" ml-1">服务订阅</div>
             </div>
             <div class="flex items-center">
               <div>
                 <Icon icon="mdi:user-outline" />
               </div>
-              <div @click="fn3">邀请成员</div>
+              <div @click="fn3" class=" ml-1">邀请成员</div>
             </div>
             <div class="flex items-center">
               <div>
                 <Icon icon="clarity:switch-line" />
               </div>
-              <div @click="fn3">切换语言</div>
+              <div @click="fn3" class=" ml-1">切换语言</div>
             </div>
             <div class="flex items-center">
               <div>
                 <Icon icon="fluent-mdl2:issue-tracking-mirrored" />
               </div>
-              <div @click="fn3">工单中心</div>
+              <div @click="fn3" class=" ml-1">工单中心</div>
             </div>
             <div class="flex items-center">
               <div>
                 <Icon icon="dashicons:update" />
               </div>
-              <div @click="fn3">更新日志</div>
+              <div @click="fn3" class=" ml-1">更新日志</div>
             </div>
             <div class="flex items-center">
               <div><Icon icon="iconamoon:exit-thin" /></div>
-              <div @click="fn3">退出</div>
+              <div @click="fn3" class=" ml-1">退出</div>
             </div>
           </div>
         </a-drawer>
